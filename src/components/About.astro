@@ -1,0 +1,103 @@
+---
+// src/components/About.astro
+---
+
+<section
+  x-data
+  x-init="$store.ui.intersect($el)"
+  id="about"
+  class="reveal py-24 bg-white"
+>
+  <div class="container mx-auto px-6">
+    <div class="flex flex-col lg:flex-row items-center gap-16">
+      <div class="w-full lg:w-1/2">
+        <h2 class="text-4xl font-bold mb-6 tracking-tight">
+          Everything you need to ship, <span class="text-gray-400"
+            >nothing you don't.</span
+          >
+        </h2>
+        <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+          We built this template because we were tired of "bloated" starters.
+          This isn't just a theme; it's a high-performance engine designed for
+          developers who value speed, SEO, and conversion logic above all else.
+        </p>
+
+        <div class="space-y-4">
+          <div class="flex items-start gap-4">
+            <div class="mt-1 bg-black rounded-full p-1">
+              <svg
+                class="w-3 h-3 text-white"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                ><path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="3"
+                  d="M5 13l4 4L19 7"></path></svg
+              >
+            </div>
+            <p class="font-medium">Built-in GTM & Analytics Logic Layer</p>
+          </div>
+          <div class="flex items-start gap-4">
+            <div class="mt-1 bg-black rounded-full p-1">
+              <svg
+                class="w-3 h-3 text-white"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                ><path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="3"
+                  d="M5 13l4 4L19 7"></path></svg
+              >
+            </div>
+            <p class="font-medium">Tailwind 4 Oxide Engine Integration</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="w-full lg:w-1/2 grid grid-cols-2 gap-4">
+        <div
+          class="p-8 bg-gray-50 rounded-2xl border border-black/5 text-center"
+        >
+          <div class="text-4xl font-bold mb-1">100</div>
+          <div
+            class="text-sm text-gray-500 uppercase tracking-widest font-semibold"
+          >
+            Lighthouse Score
+          </div>
+        </div>
+        <div class="p-8 bg-black text-white rounded-2xl text-center">
+          <div class="text-4xl font-bold mb-1">0ms</div>
+          <div
+            class="text-sm text-gray-400 uppercase tracking-widest font-semibold"
+          >
+            JS Hydration
+          </div>
+        </div>
+        <div
+          class="p-8 bg-gray-50 rounded-2xl border border-black/5 text-center"
+        >
+          <div class="text-4xl font-bold mb-1">24/7</div>
+          <div
+            class="text-sm text-gray-500 uppercase tracking-widest font-semibold"
+          >
+            Priority Support
+          </div>
+        </div>
+        <div
+          class="p-8 bg-gray-50 rounded-2xl border border-black/5 text-center"
+        >
+          <div class="text-4xl font-bold mb-1">∞</div>
+          <div
+            class="text-sm text-gray-500 uppercase tracking-widest font-semibold"
+          >
+            Scalability
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

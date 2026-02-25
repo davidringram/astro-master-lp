@@ -1,0 +1,62 @@
+---
+// src/components/Header.astro
+import { Icon } from "astro-icon/components";
+
+const features = [
+  {
+    title: "Zero Hydration",
+    desc: "Astro ships zero JS by default for maximum speed.",
+    icon: "lucide:zap", // Changed from ⚡
+  },
+  {
+    title: "Alpine Logic",
+    desc: "Lightweight interactivity without the React bloat.",
+    icon: "lucide:brain", // Changed from 🧠
+  },
+  {
+    title: "Tailwind 4",
+    desc: "Next-gen CSS engine for rapid, typed styling.",
+    icon: "lucide:palette", // Changed from 🎨
+  },
+];
+---
+
+<section id="features" class="py-24 bg-gray-50">
+  <div class="container mx-auto px-6">
+    <div class="text-center max-w-2xl mx-auto mb-16">
+      <h2 class="text-3xl lg:text-4xl font-bold mb-4 text-brand-primary">
+        Engineered for Performance
+      </h2>
+      <p class="text-gray-600">
+        Every byte is optimized to ensure your conversion rate stays as high as
+        possible.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-3 gap-8">
+      {
+        features.map((f, index) => (
+          <div
+            x-data
+            x-init="
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              $el.classList.add('reveal-visible');
+            }
+          });
+        }, { threshold: 0.1 });
+        observer.observe($el);
+      "
+            class="reveal bg-white p-8 rounded-2xl border border-black/5"
+            style={`transition-delay: ${index * 100}ms`}
+          >
+            <Icon name={f.icon} class="w-10 h-10 mb-4" />
+            <h3 class="text-xl font-bold">{f.title}</h3>
+            <p>{f.desc}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

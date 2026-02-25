@@ -1,0 +1,42 @@
+@import "tailwindcss";
+
+@import "tailwindcss";
+@plugin "@tailwindcss/forms";
+
+@theme {
+  /* Swap these for a "Brand" look */
+  --color-brand-primary: #1a1a1a;    /* Dark Grey instead of pure Black */
+  --color-brand-secondary: #fdfbf7;  /* Off-white/Cream instead of pure White */
+  --color-brand-accent: #7d7f7c;     /* mid gray */
+  
+  --font-sans: 'Geist', sans-serif;  /* Change the vibe with one line */
+}
+
+@layer base {
+  /* Initial state: hidden and slightly down */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Visible state: triggered by our Intersection Observer */
+.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+}
+
+/* src/styles/global.css */
+@layer components {
+  .reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .reveal-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

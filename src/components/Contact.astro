@@ -1,0 +1,140 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<section id="contact" class="py-24 bg-gray-50/50 border-y border-black/5">
+  <div class="container mx-auto px-6">
+    <div
+      class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-16 lg:gap-24 items-center"
+    >
+      <div
+        x-data="{ 
+          loading: false,
+          async submitContact(e) {
+            this.loading = true;
+            const form = e.target;
+            const formData = new FormData(form);
+
+            try {
+              const response = await fetch(form.action, {
+                method: 'POST',
+                body: formData,
+                headers: { 'Accept': 'application/json' }
+              });
+
+              if (response.ok) {
+                $store.ui.toast.display('Message sent successfully!');
+                form.reset();
+                if (window.posthog) {
+                    posthog.capture('form_submitted', { form_name: 'contact_page' });
+                }
+              } else {
+                $store.ui.toast.display('Ops! Something went wrong.');
+              }
+            } catch (err) {
+              $store.ui.toast.display('Network error. Please try again.');
+            } finally {
+              this.loading = false;
+            }
+          }
+        }"
+        class="bg-white p-8 lg:p-12 rounded-[2.5rem] border border-black/5 shadow-sm order-2 lg:order-1"
+      >
+        <h2 class="text-4xl font-bold tracking-tight mb-6">Get in touch</h2>
+
+        <form
+          action="https://formspree.io/f/xjgejedo"
+          method="POST"
+          @submit.prevent="submitContact($event)"
+          class="space-y-4"
+        >
+          <div class="grid md:grid-cols-2 gap-4">
+            <input
+              type="text"
+              name="name"
+              placeholder="Name"
+              required
+              class="w-full px-6 py-4 rounded-2xl bg-gray-50 border border-transparent focus:bg-white focus:border-black outline-none transition-all"
+            />
+            <input
+              type="tel"
+              name="phone"
+              placeholder="Phone"
+              class="w-full px-6 py-4 rounded-2xl bg-gray-50 border border-transparent focus:bg-white focus:border-black outline-none transition-all"
+            />
+          </div>
+          <input
+            type="email"
+            name="email"
+            placeholder="Email Address"
+            required
+            class="w-full px-6 py-4 rounded-2xl bg-gray-50 border border-transparent focus:bg-white focus:border-black outline-none transition-all"
+          />
+          <textarea
+            name="message"
+            rows="4"
+            placeholder="How can we help?"
+            required
+            class="w-full px-6 py-4 rounded-2xl bg-gray-50 border border-transparent focus:bg-white focus:border-black outline-none transition-all resize-none"
+          ></textarea>
+
+          <button
+            type="submit"
+            :disabled="loading"
+            class="w-full bg-black text-white py-4 rounded-2xl font-bold hover:bg-gray-800 transition-all disabled:opacity-50 flex items-center justify-center gap-2"
+          >
+            <span x-show="!loading">Send Message</span>
+            <span x-show="loading" class="animate-pulse">Sending...</span>
+          </button>
+        </form>
+      </div>
+
+      <div class="space-y-10 order-1 lg:order-2">
+        <div class="space-y-4">
+          <h3
+            class="text-sm font-bold uppercase tracking-widest text-brand-accent"
+          >
+            Contact
+          </h3>
+          <h2 class="text-4xl lg:text-5xl font-bold tracking-tight">
+            Let's build <br /> something great.
+          </h2>
+          <p class="text-gray-600 text-lg">
+            Ready to start your next project? We're here to help you scale your
+            vision.
+          </p>
+        </div>
+
+        <div class="space-y-6 pt-4">
+          <div class="flex items-center gap-4">
+            <div
+              class="w-12 h-12 rounded-2xl bg-black text-white flex items-center justify-center shadow-lg"
+            >
+              <Icon name="lucide:mail" class="w-5 h-5" />
+            </div>
+            <a
+              href="mailto:hello@masterlp.com"
+              class="text-xl font-bold hover:text-brand-accent transition-colors"
+            >
+              hello@masterlp.com
+            </a>
+          </div>
+
+          <div class="flex items-center gap-4">
+            <div
+              class="w-12 h-12 rounded-2xl bg-white border border-black/5 flex items-center justify-center shadow-sm"
+            >
+              <Icon name="lucide:phone" class="w-5 h-5" />
+            </div>
+            <a
+              href="tel:+1234567890"
+              class="text-xl font-bold hover:text-brand-accent transition-colors"
+            >
+              +1 (234) 567-890
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

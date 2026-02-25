@@ -1,0 +1,62 @@
+---
+const faqs = [
+  {
+    question: "How does the Master Template work?",
+    answer: "It's built on Astro 5, providing the fastest possible load times by stripping away unnecessary JavaScript. You get a production-ready site that scores 100 on Lighthouse out of the box."
+  },
+  {
+    question: "Can I customize the brand colors?",
+    answer: "Absolutely. We use Tailwind 4 variables. Simply update the 'brand-accent' color in your CSS, and the entire site—from buttons to icons—will update automatically."
+  },
+  {
+    question: "Is there a limit to how many leads I can collect?",
+    answer: "No. Since we use Formspree, you can scale your lead collection based on your plan. The frontend is built to handle as much traffic as you can throw at it."
+  },
+  {
+    question: "Do I need a backend for the contact form?",
+    answer: "Nope. Everything is handled via serverless endpoints. You don't need to manage a database or write a single line of Node.js to get started."
+  }
+];
+---
+
+<section id="faq" class="py-24 bg-gray-50/50">
+  <div class="container mx-auto px-6">
+    <div class="max-w-3xl mx-auto">
+      <div class="text-center mb-16">
+        <h3 class="text-sm font-bold uppercase tracking-widest text-brand-accent mb-4">Questions</h3>
+        <h2 class="text-4xl font-bold tracking-tight">Frequently Asked</h2>
+      </div>
+
+      <div class="space-y-4" x-data="{ active: null }">
+        {faqs.map((faq, index) => (
+          <div class="bg-white rounded-3xl border border-black/5 overflow-hidden transition-all duration-300">
+            <button 
+              @click={`active !== ${index} ? active = ${index} : active = null`}
+              class="w-full px-8 py-6 text-left flex items-center justify-between gap-4"
+            >
+              <span class="text-lg font-bold tracking-tight">{faq.question}</span>
+              <div 
+                class="w-8 h-8 rounded-full bg-black/5 flex items-center justify-center transition-transform duration-300"
+                :class={`active === ${index} ? 'rotate-180 bg-black text-white' : ''`}
+              >
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" />
+                </svg>
+              </div>
+            </button>
+            
+            <div 
+              x-show={`active === ${index}`}
+              x-collapse
+              class="px-8 pb-6"
+            >
+              <p class="text-gray-600 leading-relaxed italic">
+                {faq.answer}
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
