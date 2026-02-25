@@ -1,46 +1,44 @@
-# Astro Starter Kit: Basics
+# 🚀 Master LP: High-Performance Landing Page Template
 
-```sh
-pnpm create astro@latest -- --template basics
-```
+A "God Tier" landing page engine built for speed, conversion, and effortless rebranding. This template leverages the power of **Astro 5**, **Tailwind 4**, and **Alpine.js** to deliver 100/100 Lighthouse scores and a premium user experience.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+---
 
-## 🚀 Project Structure
+## 🛠 The Tech Stack
 
-Inside of your Astro project, you'll see the following folders and files:
+- **Framework:** [Astro 5](https://astro.build) (Zero-JS baseline performance)
+- **Styling:** [Tailwind CSS 4](https://tailwindcss.com) (Variable-based design system)
+- **Interactivity:** [Alpine.js](https://alpinejs.dev) (Lightweight global state management)
+- **Forms:** [Formspree](https://formspree.io) (Serverless lead capture)
+- **Analytics:** [PostHog](https://posthog.com) & [GA4](https://analytics.google.com) (Session replays and event tracking)
+
+---
+
+## 📂 Project Structure
 
 ```text
 /
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
+├── public/               # Static assets (Favicons, OG Images, SVGs)
+├── src/
+│   ├── components/       # Atomic UI Sections
+│   │   ├── Analytics.astro  # Google & PostHog injection
+│   │   ├── Contact.astro    # Full contact form with AJAX logic
+│   │   ├── FAQ.astro        # Interactive Alpine.js accordions
+│   │   ├── Features.astro   # Value proposition grid
+│   │   ├── Header.astro     # Sticky navigation with scroll tracking
+│   │   ├── Hero.astro       # Lead gen & Waitlist logic
+│   │   ├── Metadata.astro   # SEO & Social Card management
+│   │   ├── Pricing.astro    # Tiered pricing with tactile hover effects
+│   │   └── Team.astro       # Team grid with social overlays
+│   ├── layouts/
+│   │   └── Layout.astro     # Main shell (Toaster, Global Head, Slots)
+│   ├── scripts/
+│   │   └── alpine-store.js  # Global UI Store (Toasts, Navigation, Scroll)
+│   ├── styles/
+│   │   └── global.css       # Tailwind 4 Theme & Custom Animations
+│   └── pages/
+│       ├── 404.astro        # Custom Error page
+│       └── index.astro      # Main Landing Page entry point
+├── astro.config.mjs      # Integrations & Site configuration
+└── package.json          # Project dependencies & scripts
 ```
-
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
