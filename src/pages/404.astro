@@ -1,0 +1,50 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="404: Page Not Found | Master LP">
+  <section class="min-h-[70vh] flex items-center justify-center py-24">
+    <div class="container mx-auto px-6 text-center">
+      <div
+        class="mb-8 inline-flex items-center justify-center w-24 h-24 rounded-full bg-brand-accent/10 text-brand-accent"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="40"
+          height="40"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <circle cx="12" cy="12" r="10"></circle><path d="m15 9-6 6"
+          ></path><path d="m9 9 6 6"></path>
+        </svg>
+      </div>
+
+      <h1 class="text-6xl lg:text-8xl font-black tracking-tighter mb-4">404</h1>
+      <h2 class="text-2xl lg:text-3xl font-bold mb-6">Lost in space?</h2>
+      <p class="text-gray-600 max-w-md mx-auto mb-10 text-lg">
+        The page you're looking for doesn't exist or has been moved to a new
+        dimension.
+      </p>
+
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a
+          href="/"
+          class="px-8 py-4 bg-black text-white rounded-2xl font-bold hover:bg-gray-800 transition-all hover:scale-105"
+        >
+          Back to Home
+        </a>
+        <a
+          href="https://davidringram.com"
+          class="px-8 py-4 border border-black/10 rounded-2xl font-bold hover:bg-gray-50 transition-all"
+        >
+          David R. Ingram, fCMO
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
